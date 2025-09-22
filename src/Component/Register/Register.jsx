@@ -1,5 +1,5 @@
 import bgImage from "../../Images/samuel-regan-asante-wMkaMXTJjlQ-unsplash.jpg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -166,6 +166,13 @@ export default function Register() {
               <button type="submit" className="btn btn-primary w-100">
                 Register
               </button>
+              {/* LogIn Link */}
+              <p className="text-center mt-3 mb-0">
+                Do you have an account?{" "}
+                <Link to="/" className="text-decoration-none">
+                  Login here
+                </Link>
+                </p>
             </form>
           </div>
         </div>

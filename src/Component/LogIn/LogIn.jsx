@@ -19,9 +19,10 @@ export default function LogIn({ saveLoginData }) {
 
       if (data.token) {
         localStorage.setItem("token", data.token);
-        saveLoginData;
+        saveLoginData();   // ← استدعاء الدالة
         navigate("/home");
-      } else {
+      }
+      else {
         setApiError("Invalid login credentials");
       }
     } catch (err) {
@@ -34,7 +35,6 @@ export default function LogIn({ saveLoginData }) {
       .email("Invalid email address")
       .required("Email is required"),
     password: Yup.string()
-      .matches(/^[A-Z][a-z0-9]{5,10}$/, "Password must start with a capital letter")
       .required("Password is required"),
   });
 
@@ -91,7 +91,7 @@ export default function LogIn({ saveLoginData }) {
               <div className="mb-3">
                 <label className="form-label" htmlFor="password">
                   Password
-                </label>
+                </label> 
                 <input
                   type="password"
                   name="password"
